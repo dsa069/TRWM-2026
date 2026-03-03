@@ -1,0 +1,12 @@
+//- filepath: /home/dsala/TWM-2026/views/error.pug
+extends layout
+
+block content
+  .row.justify-content-center
+    .col-md-6.text-center.py-5
+      i.bi.bi-exclamation-triangle-fill.display-1.text-danger
+      h1.mt-3= message || 'Error'
+      p.text-muted Ha ocurrido un error inesperado.
+      a.btn.btn-primary(href='/')
+        i.bi.bi-house-fill.me-2
+        | Volver al inicio

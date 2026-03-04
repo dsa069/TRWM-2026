@@ -1,33 +1,32 @@
+// For format details, see https://aka.ms/devcontainer.json. For config options, see the
+// README at: https://github.com/devcontainers/templates/tree/main/src/typescript-node
 {
-  "name": "TWM-2026 Frontend (Angular)",
-  "dockerComposeFile": "../../docker-compose.yml",
-  "service": "frontend",
-  "workspaceFolder": "/workspace/client",
-  "customizations": {
+	"name": "Node.js & TypeScript",
+	// Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
+	"image": "mcr.microsoft.com/devcontainers/typescript-node:4-24-trixie",
+	"features": {
+		"ghcr.io/devcontainers-extra/features/angular-cli:2": {},
+		"ghcr.io/devcontainers-extra/features/npm-package:1": {}
+	},
+
+	// Use 'postCreateCommand' to run commands after the container is created.
+	"postCreateCommand": "npm install",
+
+	// Configure tool-specific properties.
+	"customizations": {
     "vscode": {
       "extensions": [
-        "angular.ng-template",
-        "ms-vscode.vscode-typescript-next",
-        "dbaeumer.vscode-eslint",
         "esbenp.prettier-vscode",
-        "formulahendry.auto-rename-tag",
-        "bradlc.vscode-tailwindcss",
-        "pkief.material-icon-theme",
-        "ms-azuretools.vscode-docker"
+        "echoapi.echoapi-for-vscode"
       ],
       "settings": {
         "editor.formatOnSave": true,
         "editor.defaultFormatter": "esbenp.prettier-vscode",
         "typescript.preferences.importModuleSpecifier": "relative",
-        "typescript.tsdk": "node_modules/typescript/lib",
-        "angular.enable-strict-mode-prompt": false
+        "typescript.tsdk": "node_modules/typescript/lib"
       }
     }
-  },
-  "forwardPorts": [4200],
-  "portsAttributes": {
-    "4200": { "label": "Angular Dev Server", "onAutoForward": "openBrowser" }
-  },
-  "postCreateCommand": "npm install",
-  "remoteUser": "node"
+  }
+	// Uncomment to connect as root instead. More info: https://aka.ms/dev-containers-non-root.
+	// "remoteUser": "root"
 }

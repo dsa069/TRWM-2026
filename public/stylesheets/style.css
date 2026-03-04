@@ -1,38 +1,8 @@
-:root {
-  --primary-color: #0d6efd;
-  --secondary-color: #6c757d;
-  --success-color: #198754;
-}
-
 body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background-color: #f8f9fa;
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
-/* Navbar personalizado */
-.navbar-brand {
-  font-weight: 700;
-  font-size: 1.4rem;
-}
-
-/* Cards con hover effect */
-.card {
-  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
-}
-
-.card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15) !important;
-}
-
-/* Footer */
-footer {
-  margin-top: auto;
-}
-
-/* Responsive utilities */
-@media (max-width: 768px) {
-  .display-4 {
-    font-size: 2rem;
-  }
+a {
+  color: #00B7FF;
 }

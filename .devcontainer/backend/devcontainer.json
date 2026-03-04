@@ -1,0 +1,33 @@
+{
+  "name": "TWM-2026 Backend (Node/Express)",
+  "dockerComposeFile": "../../docker-compose.yml",
+  "service": "backend",
+  "workspaceFolder": "/workspace",
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "ms-vscode.vscode-typescript-next",
+        "dbaeumer.vscode-eslint",
+        "esbenp.prettier-vscode",
+        "mongodb.mongodb-vscode",
+        "ms-azuretools.vscode-docker",
+        "humao.rest-client",
+        "pkief.material-icon-theme"
+      ],
+      "settings": {
+        "editor.formatOnSave": true,
+        "editor.defaultFormatter": "esbenp.prettier-vscode",
+        "typescript.preferences.importModuleSpecifier": "relative",
+        "typescript.tsdk": "node_modules/typescript/lib"
+      }
+    }
+  },
+  "forwardPorts": [3000, 27017, 8081],
+  "portsAttributes": {
+    "3000": { "label": "Express API", "onAutoForward": "notify" },
+    "27017": { "label": "MongoDB", "onAutoForward": "silent" },
+    "8081": { "label": "Mongo Express", "onAutoForward": "notify" }
+  },
+  "postCreateCommand": "npm install",
+  "remoteUser": "node"
+}

@@ -1,10 +1,11 @@
 version: "3.9"
 
 services:
-  app:
+  # ─── Backend: Node.js + Express + TypeScript ───────────────────────────────
+  backend:
     build:
       context: .
-      dockerfile: .devcontainer/Dockerfile
+      dockerfile: .devcontainer/backend/Dockerfile
     volumes:
       - .:/workspace:cached
     command: sleep infinity
@@ -12,7 +13,6 @@ services:
       - twm-network
     ports:
       - "3000:3000"
-      - "4200:4200"
     depends_on:
       - mongodb
     environment:
@@ -20,6 +20,22 @@ services:
       - MONGODB_URI=mongodb://mongodb:27017/twm2026
       - PORT=3000
 
+  # ─── Frontend: Angular SPA ──────────────────────────────────────────────────
+  frontend:
+    build:
+      context: .
+      dockerfile: .devcontainer/frontend/Dockerfile
+    volumes:
+      - .:/workspace:cached
+    command: sleep infinity
+    networks:
+      - twm-network
+    ports:
+      - "4200:4200"
+    environment:
+      - NODE_ENV=development
+
+  # ─── MongoDB ────────────────────────────────────────────────────────────────
   mongodb:
     image: mongo:7.0
     restart: unless-stopped
@@ -32,6 +48,7 @@ services:
     environment:
       - MONGO_INITDB_DATABASE=twm2026
 
+  # ─── Mongo Express (UI de administración) ───────────────────────────────────
   mongo-express:
     image: mongo-express:latest
     restart: unless-stopped

@@ -1,5 +1,7 @@
 extends layout
 
 block content
-  h1= title
-  p Welcome to #{title}
+  .container
+    h1.text-primary= title
+    p.lead Welcome to #{title}
+    button.btn.btn-success Click me

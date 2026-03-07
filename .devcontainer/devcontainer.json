@@ -14,7 +14,7 @@
   "forwardPorts": [3000],
 
   // Use 'postCreateCommand' to run commands after the container is created.
-  "postCreateCommand": "npm install",
+  "postCreateCommand": "npm install && npm install typescript ts-node @types/node @types/express @types/morgan &&npm install bootstrap",
 
   // Configure tool-specific properties.
   "customizations": {

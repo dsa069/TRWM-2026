@@ -22,6 +22,8 @@
       "extensions": [
         "esbenp.prettier-vscode",
         "mongodb.mongodb-vscode",
+        "dbaeumer.vscode-eslint",
+        "github.copilot",
         "github.copilot-chat",
         "echoapi.echoapi-for-vscode"
       ],

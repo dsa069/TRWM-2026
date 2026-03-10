@@ -1,9 +1,13 @@
 import { Router } from "express";
-import { index } from "../controllers/main";
+import { homeList, locationInfo, addReview } from "../controllers/location";
+import { about } from "../controllers/others";
 
 const router = Router();
 
 /* GET home page. */
-router.get("/", index);
+router.get("/", homeList);
+router.get("/location", locationInfo);
+router.get("/location/review/new", addReview);
+router.get("/about", about);
 
 export default router;

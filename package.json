@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "start": "ts-node --transpile-only ./src/bin/www.ts",
+    "start": "ts-node --transpile-only ./bin/www.ts",
     "build": "tsc"
   },
   "ts-node": {
@@ -14,8 +14,7 @@
   "dependencies": {
     "@types/express": "^5.0.6",
     "@types/morgan": "^1.9.10",
-    "@types/node": "^25.3.5",
-    "bootstrap": "^5.3.8",
+    "@types/node": "^25.4.0",
     "cookie-parser": "~1.4.4",
     "debug": "~2.6.9",
     "express": "^4.22.1",

@@ -31,21 +31,33 @@ block content
                     .card.card-primary
                         .card-body
                             h2.card-title Location map
-                            // Aquí puedes agregar un mapa embebido o una imagen de mapa
-                            img(src="/images/map-placeholder.png" alt="Location map" style="width:100%;height:auto;")
-                .col-12
-                    .card.card-primary
-                        .card-body
-                            h2.card-title Customer reviews 
-                            .review
-                                p.rating
-                                    i.fas.fa-star 
-                                    i.fas.fa-star
-                                    i.fas.fa-star
-                                    i.far.fa-star
-                                    i.far.fa-star
-                                p 5 May 2024 by Simon Holmes 
-                                p Great place to work with a coffee. Wifi is reliable and the staff are friendly.
+                            img(src="https://placehold.co/200x200")
+                .row
+                    .col-12
+                        .card.card-primary
+                            .card-body
+                                h2.card-title.mb-0 Customer reviews
+                                    a.btn.btn-danger.btn-sm(href="/location/review/new") Add review
+                                p.card-text
+                                    span
+                                        i.fas.fa-star
+                                        i.fas.fa-star
+                                        i.fas.fa-star
+                                        i.far.fa-star
+                                        i.far.fa-star
+                                    span.font-weight-bold Simon Holmes
+                                    span.text-muted 5 May 2024
+                                p.mt-2 Great place to work with a coffee. Wifi is reliable and the staff are friendly.
+                                p.card-text    
+                                    span
+                                        i.fas.fa-star
+                                        i.fas.fa-star
+                                        i.fas.fa-star
+                                        i.far.fa-star
+                                        i.far.fa-star
+                                    span.font-weight-bold Simon Holmes
+                                    span.text-muted 5 May 2024
+                                p.mt-2 Great place to work with a coffee. Wifi is reliable and the staff are friendly.
         .col-12.col-lg-3 
                 p Starcups is on Loc8r because it has accessible wifi and space to sit down with your laptop and get some work done.
                 p If you´ve been and you like it, or if you don´t, please leave a review to help other people just like you.

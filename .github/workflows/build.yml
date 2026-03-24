@@ -30,3 +30,11 @@ jobs:
           name: JEST Tests # Name of the check run which will be created
           path: reports/junit.xml # Path to test results
           reporter: jest-junit # Format of test results
+
+
+      # MIRAR REPO PACO
+      #- name:
+      #- uses: ArtiomTr/jest-coverage-report-action@v2
+      #  with:
+      #    coverage-file: ./coverage/report.json
+      #    base-coverage-file: ./coverage/master/report.json

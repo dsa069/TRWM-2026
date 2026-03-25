@@ -6,6 +6,8 @@ import logger from "morgan";
 
 import indexRouter from "./app_server/routes/index";
 import usersRouter from "./app_server/routes/users";
+import "./app_server/models/db";
+import "./app_server/models/locations";
 
 const app = express();
 

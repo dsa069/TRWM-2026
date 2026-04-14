@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { homeList, locationInfo, addReview } from "../controllers/location";
+import { homeList, locationInfo, addReview } from "../controllers/locations";
 import { about } from "../controllers/others";
 
 const router = Router();

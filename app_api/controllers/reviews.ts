@@ -57,3 +57,58 @@ export const reviewsCreate = async (req: Request, res: Response) => {
     res.status(500).json({ message: "Unknown Error" });
   }
 };
+
+export const reviewsUpdate = async (req: Request, res: Response) => {
+  try {
+    const location = await Location.findById(req.params.locationId)
+      .select("reviews")
+      .exec();
+    if (!location)
+      return res.status(404).json({ message: "Location not found" });
+
+    const review = location.reviews?.find(
+      (r: any) => r._id?.toString() === req.params.reviewId,
+    );
+    if (!review) return res.status(404).json({ message: "Review not found" });
+
+    review.author = req.body.author || review.author;
+    review.rating = req.body.rating || review.rating;
+    review.reviewText = req.body.reviewText || review.reviewText;
+
+    await location.save();
+
+    return res.status(200).json(review);
+  } catch (err: any) {
+    if (err.name === "CastError") {
+      return res.status(400).json({ message: "Bad Request" });
+    }
+    res.status(500).json({ message: "Unknown Error" });
+  }
+};
+
+export const reviewsDelete = async (req: Request, res: Response) => {
+  try {
+    const location = await Location.findById(req.params.locationId)
+      .select("reviews")
+      .exec();
+    if (!location)
+      return res.status(404).json({ message: "Location not found" });
+
+    const reviewIndex = location.reviews?.findIndex(
+      (r: any) => r._id?.toString() === req.params.reviewId,
+    );
+    if (reviewIndex === undefined || reviewIndex < 0)
+      return res.status(404).json({ message: "Review not found" });
+
+    location.reviews?.splice(reviewIndex, 1);
+
+    await location.save();
+
+    return res.status(204).json();
+  } catch (err: any) {
+    if (err.name === "CastError") {
+      return res.status(400).json({ message: "Bad Request" });
+    }
+    res.status(500).json({ message: "Unknown Error" });
+  }
+};

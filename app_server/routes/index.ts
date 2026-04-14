@@ -6,8 +6,8 @@ const router = Router();
 
 /* GET home page. */
 router.get("/", homeList);
-router.get("/location", locationInfo);
-router.get("/location/review/new", addReview);
+router.get("/location/:locationId", locationInfo);
+router.get("/location/:locationId/review/new", addReview);
 router.get("/about", about);
 
 export default router;

@@ -33,6 +33,7 @@ const gracefulShutdown = (msg: string, callback: () => void) => {
     });
 };
 
+//TO DO: Reemplazar nodemon
 process.once("SIGUSR2", () => {
   gracefulShutdown("nodemon restart", () => {
     process.kill(process.pid, "SIGUSR2");

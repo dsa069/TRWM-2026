@@ -12,14 +12,16 @@ block content
                     p
                         +outputRating(location.rating)
                     p #{location.address}
-                    .card.card-primary
-                        .card-body
-                                h2.card-title #{openingTimes.days} 
-                                p.card-text #{openingTimes.opening} - #{openingTimes.closing}
-                                if !openingTimes.closed
-                                    p.card-text Open today
-                                else
-                                    p.card-text Closed today
+                    if location.openingTimes
+                        each openingTimes in location.openingTimes
+                            .card.card-primary
+                                .card-body
+                                    h2.card-title #{openingTimes.days}
+                                    p.card-text #{openingTimes.opening} - #{openingTimes.closing}
+                                    if !openingTimes.closed
+                                        p.card-text Open today
+                                    else
+                                        p.card-text Closed today
                     .card.card-primary 
                         .card-body
                             h2.card-title Facilities 

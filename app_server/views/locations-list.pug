@@ -1,3 +1,4 @@
+extends layout
 include _includes/sharedHTMLfunctions
 
 block content
@@ -11,7 +12,7 @@ block content
                 .card.mt-4.mb-4
                     .card-body
                         h4.card-title
-                            a(href='/location/${location._id}') #{location.name}
+                            a(href="/location/" + location._id) #{location.name}
                             small &nbsp;
                                 +outputRating(location.rating)
                             span.badge.badge-pill.badge-secondary.float-right #{location.distance}

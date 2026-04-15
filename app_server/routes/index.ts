@@ -8,6 +8,7 @@ const router = Router();
 router.get("/", homeList);
 router.get("/location/:locationId", locationInfo);
 router.get("/location/:locationId/review/new", addReview);
+router.post("/location/:locationId/review/new", require("../controllers/locations").doAddReview);
 router.get("/about", about);
 
 export default router;

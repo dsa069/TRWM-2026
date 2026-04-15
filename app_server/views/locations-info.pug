@@ -1,63 +1,48 @@
 extends layout
+include _includes/sharedHTML
 
 block content
     .row.banner
         .col-12
-            h1 Starcups
+            h1 #{location.name}
     .row
         .col-12.col-lg-9 
             .row 
                 .col-12.col-md-6
-                    p.rating
-                        i.fas.fa-star 
-                        i.fas.fa-star
-                        i.fas.fa-star
-                        i.far.fa-star
-                        i.far.fa-star
-                    p 125 High Street, Reading RG6 1PS
+                    p
+                        +outputRating(location.rating)
+                    p #{location.address}
                     .card.card-primary
                         .card-body
-                            h2.card-title Opening hours 
-                            p.card-text Monday - Friday: 7:00am - 7:00pm
-                            p.card-text Saturday: 8:00am - 5:00pm
-                            p.card-text Sunday: closed 
+                                h2.card-title #{openingTimes.days} 
+                                p.card-text #{openingTimes.opening} - #{openingTimes.closing}
+                                if !openingTimes.closed
+                                    p.card-text Open today
+                                else
+                                    p.card-text Closed today
                     .card.card-primary 
                         .card-body
                             h2.card-title Facilities 
-                            span.badge.badge-warning Hot drinks
-                            span.badge.badge-warning Food
-                            span.badge.badge-warning Premium wifi
+                            each facility in location.facilities
+                                span.badge.badge-warning #{facility}
                 .col-12.col-md-6
                     .card.card-primary
                         .card-body
-                            h2.card-title Location map
+                            h2.card-title Location Map #{location.coords}
                             img(src="https://placehold.co/200x200")
                 .row
                     .col-12
                         .card.card-primary
                             .card-body
                                 h2.card-title.mb-0 Customer reviews
-                                    a.btn.btn-danger.btn-sm(href="/location/review/new") Add review
-                                p.card-text
-                                    span
-                                        i.fas.fa-star
-                                        i.fas.fa-star
-                                        i.fas.fa-star
-                                        i.far.fa-star
-                                        i.far.fa-star
-                                    span.font-weight-bold Simon Holmes
-                                    span.text-muted 5 May 2024
-                                p.mt-2 Great place to work with a coffee. Wifi is reliable and the staff are friendly.
-                                p.card-text    
-                                    span
-                                        i.fas.fa-star
-                                        i.fas.fa-star
-                                        i.fas.fa-star
-                                        i.fas.fa-star
-                                        i.far.fa-star
-                                    span.font-weight-bold Clive Harber
-                                    span.text-muted 3 May 2024
-                                p.mt-2 Good for working, but the coffee isn´t great.
+                                    a.btn.btn-secondary.float-right(href=`/location/${location._id}/review/new`) Add Review
+                                each review in location.reviews
+                                    p.card-text
+                                        span 
+                                            +outputRating(review.rating)
+                                        span #{review.author} 
+                                        span.date #{review.date}
+                                    p.card-text #{review.text}
         .col-12.col-lg-3 
-                p Starcups is on Loc8r because it has accessible wifi and space to sit down with your laptop and get some work done.
+                p #{location.name} is on Loc8r because it has accessible wifi and space to sit down with your laptop and get some work done.
                 p If you´ve been and you like it, or if you don´t, please leave a review to help other people just like you.

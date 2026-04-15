@@ -1,0 +1,8 @@
+//- Mixin para mostrar estrellas de rating
+mixin outputRating(rating)
+    .rating
+        - for (let i = 0; i < 5; i++)
+            if i < rating
+                span.fa.fa-star.checked
+            else
+                span.fa.fa-star

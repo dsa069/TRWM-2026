@@ -106,9 +106,9 @@ export const reviewsDelete = async (req: Request, res: Response) => {
 
     return res.status(204).json();
   } catch (err: any) {
-    if (err.name === "CastError") {
+    if (err.name === "CastError")
       return res.status(400).json({ message: "Bad Request" });
-    }
+    
     res.status(500).json({ message: "Unknown Error" });
   }
 };
